@@ -11,13 +11,13 @@ class Player {
         Player(std::string name);
 
         ~Player();
-        
+
     private:
         std::string name;
         int         health;
         int         level;
 
-        Inventory   inventory;   
+        Inventory   *inventory;   
 };
 
 Player::Player() {
