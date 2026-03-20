@@ -5,14 +5,18 @@
 #include <fstream>
 #include <string>
 
+struct inventorySlot {
+    int itemID = 0;
+    int row;
+    int col;
+};
+
 class Inventory {
     public:
         Inventory();
         ~Inventory();
 
     private:
-        // Plan on this being a 4 or 5 row and an incomplete number of rows
-        // for inventory upgrades? All still square or rectangle shaped
         int row;
         int col;
         inventorySlot** grid;
@@ -32,7 +36,7 @@ Inventory::Inventory() {
     // Initialize to all zeros
     for (int i = 0; i < this->row; i++) {
         for (int j = 0; j < this->col; j++) {
-            this->grid[i][j] = new inventorySlot();
+            this->grid[i][j] = inventorySlot();
         }
     }
 }
@@ -43,11 +47,5 @@ Inventory::~Inventory() {
     }
 
     delete[] this->grid;
-};
-
-struct inventorySlot {
-    int itemID = 0;
-    int row;
-    int col;
 };
 #endif
